@@ -22,19 +22,11 @@ public class Field : MonoBehaviour
 
     public bool anyCellMoved;
 
-
-
-    private void Update()
-    {     
-        if (Input.GetKeyDown(KeyCode.A))
-            OnInput(Vector2.left);
-        if (Input.GetKeyDown(KeyCode.D))
-            OnInput(Vector2.right);
-        if (Input.GetKeyDown(KeyCode.W))
-            OnInput(Vector2.up);
-        if (Input.GetKeyDown(KeyCode.S))
-            OnInput(Vector2.down);
+    private void Start()
+    {
+        SwipeDetection.SwipeEvent += OnInput;
     }
+
     public void OnInput(Vector2 direction)
     {
         if (!GameController.GameStart)
